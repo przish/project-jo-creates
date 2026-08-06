@@ -203,7 +203,7 @@ export default function Page() {
 
             <div className="bg-surface-container rounded-xl p-md shadow-sm overflow-x-auto">
               <div className="min-w-[800px]">
-                <div className="grid grid-cols-[repeat(52,1fr)] gap-1 mb-xs">
+                <div className="grid grid-flow-col grid-rows-[repeat(7,minmax(0,1fr))] auto-cols-fr gap-1 mb-xs">
                   {heatmapData.map((cell, index) => (
                     <div
                       key={index}
