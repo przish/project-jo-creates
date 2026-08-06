@@ -342,15 +342,14 @@ export default function Page() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
               {/* Card 1 */}
-              {(activeFilter === "all" ||
-                activeFilter === "graphic-design") && (
+              {(activeFilter === "all" || activeFilter === "video-editing") && (
                 <div className="group bg-surface-container rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                   <div
                     className="w-full aspect-[4/3] bg-cover bg-center"
                     title="A striking poster design blending Swiss graphic design principles with fluid, liquid-like blue (#4684C2) abstract shapes. Bold typography, high contrast."
                     style={{
                       backgroundImage:
-                        "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAgUy6xobyGN0_Vc4WmOIuqtiJ24m4BZXtGVUISEbyeGPkHty77FiHJP0nYbZ9afTcC1mfQ1KZWNMWKPbMqzJQokiVg94vXWH5av2AUJdfIHQmezflfEybHKMT67kELmgbhr7G4SLR-bwyCE4aZ_SV2WcGC3cQd3_3Xo-z2610Gyf8vPwKI08A5m3Vfpsm0n4QFVWMTfd1yYniahX9WRrAGZtgBaEWUehs7zhURG_E1RfFHnpdxGCI3')",
+                        "url('https://scontent.fmnl3-3.fna.fbcdn.net/v/t39.30808-6/750216790_122122687131349161_947381487810958021_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFIwHmepVVuZ8wBKNpxlln7KagB8EM75d8pqAHwQzvl39r2zrQK08PWAMfeiR8mc2X78T4TIo0MDYDpn6NMbsPD&_nc_ohc=VUGcifaMRAMQ7kNvwFx59qt&_nc_oc=AdpRk_Jnnqe-X0f_m7gD6lvs6HTLwDngfvWzzmbmgCRo_oTvRyn8ElqjpcmOTsDd2PzwjqZEOayx8JJ9Pz1dyTUe&_nc_zt=23&_nc_ht=scontent.fmnl3-3.fna&_nc_gid=WeEHA4lEjLIAZ8d6JBpn6g&_nc_ss=7b2a8&oh=00_AQHsKdZ6bpjy4SznqTStLioFClPxSSJ7viH3X0x3Sy2v8g&oe=6A7A3582')",
                     }}
                   ></div>
                   <div className="p-md">
@@ -363,7 +362,7 @@ export default function Page() {
                     </p>
                     <div className="flex gap-2">
                       <span className="bg-surface text-tertiary-container px-2 py-1 rounded font-label-caps text-[10px]">
-                        Graphic Design
+                        Video Editing
                       </span>
                     </div>
                   </div>
@@ -378,7 +377,7 @@ export default function Page() {
                     title="A sleek video editing timeline interface mockup displayed on a modern monitor, showing a cinematic color grading workflow. Moody lighting, professional studio environment."
                     style={{
                       backgroundImage:
-                        "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAp1um0Gc5F0epIfZqvg5T-M9l9cIyGtqEcHbfFHi47AJdmhJxo2yZUK4tmUAfVt8ej55DkIEx2nslIE02dII8yTlD7vEpC0YVYnI--YKJR_TAs8gjm-9nA__rf9eEHwp_5ZJ08b9zlUmHRIgvUUw5ZrPK74YRG4NQOO8uvyGhoayC1WjpGUoejE8BMdMF3HSVJOlE3JuLM0nv8NCUNhiTSkcvBNQ6E3C0M_TpZYjPXkYky9LQ5Vjo7')",
+                        "url('https://scontent.fmnl37-2.fna.fbcdn.net/v/t39.30808-6/762655567_122127149817349161_2558059895926331776_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeENX-RnUbB9XS2UJLlK-7iqsQd5UVQyPvCxB3lRVDI-8Ir6ndHgL7Q3QVNZDS2fKnMB5mVcLllMMns7J_ixn4n8&_nc_ohc=RGhig4GrdjgQ7kNvwH2j4SL&_nc_oc=AdpwD9RA8qbubuBPIqw0PgkJHRopbhzlKYYTIJ_GPXo5kiG2YaY78v_AaO3J6J5OWTdcdDtF4Vn1063aGuzxTyKB&_nc_zt=23&_nc_ht=scontent.fmnl37-2.fna&_nc_gid=-9SZwlz2zSk8o2Rg2zCkPQ&_nc_ss=7b2a8&oh=00_AQFCWeTlfXxzWra7y8WSTA5rQyeMHCplreTBUDGcozAweA&oe=6A7A304A')",
                     }}
                   ></div>
                   <div className="p-md">
@@ -400,6 +399,62 @@ export default function Page() {
 
               {/* Card 3 */}
               {(activeFilter === "all" ||
+                activeFilter === "graphic-design") && (
+                <div className="group bg-surface-container rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  <div
+                    className="w-full aspect-[4/3] bg-cover bg-center"
+                    title="A luxury packaging mockup for a skincare brand. Clean white boxes with subtle debossed silver logos and a signature blue (#4684C2) ribbon. Studio lighting."
+                    style={{
+                      backgroundImage:
+                        "url('https://scontent.fmnl3-4.fna.fbcdn.net/v/t39.30808-6/747536278_122121614901349161_6933834063136793011_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGWXpTTbOHrSgrgGvY9fDd_jZEXt4etOY-NkRe3h605j_j3ou8BKinhO2neCbiyRut8aml2pvSTEnHWRJG974Ix&_nc_ohc=0qivg4F45D8Q7kNvwGKE8PN&_nc_oc=AdrRDqxzk0IsBz1I3yRJyHVipbKcM4RJwQ0hBJeSCKaT-QrVBoskeTeSKFmKQmBFYuB7EDmwPLTMK3EaJsWl0Tce&_nc_zt=23&_nc_ht=scontent.fmnl3-4.fna&_nc_gid=Bdogxr-tELx33MQ-JTB-2A&_nc_ss=7b2a8&oh=00_AQEPvuv_1I35EyELMok4ovMr1Zu_YlYJ90h9xiEjTUTuWw&oe=6A7A5772')",
+                    }}
+                  ></div>
+                  <div className="p-md">
+                    <h4 className="font-headline-md text-body-lg font-semibold text-on-surface mb-xs">
+                      Vela Skincare
+                    </h4>
+                    <p className="font-body-md text-sm text-on-surface-variant mb-sm line-clamp-2">
+                      Complete packaging and identity design for a premium
+                      organic skincare line.
+                    </p>
+                    <div className="flex gap-2">
+                      <span className="bg-surface text-tertiary-container px-2 py-1 rounded font-label-caps text-[10px]">
+                        Graphic Design
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {(activeFilter === "all" ||
+                activeFilter === "graphic-design") && (
+                <div className="group bg-surface-container rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  <div
+                    className="w-full aspect-[4/3] bg-cover bg-center"
+                    title="A luxury packaging mockup for a skincare brand. Clean white boxes with subtle debossed silver logos and a signature blue (#4684C2) ribbon. Studio lighting."
+                    style={{
+                      backgroundImage:
+                        "url('https://scontent.fmnl37-1.fna.fbcdn.net/v/t39.30808-6/749315310_122123495373349161_901608384915286643_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFzFLOy5tE1a12P6H7cpUB4zuYYX268nj3O5hhfbryePeV1GZnRy0qAu1LejL91FZWnKaep4H-nyd1yEc6aO2xq&_nc_ohc=hzPe2Nn_OKwQ7kNvwGd6JcH&_nc_oc=Adqfzbl-HKPgzCR2EEY8KLlMSeF4yKjqaxQ5oJdwuF35lScEYmv2airTutF79QADJr8LPaTTBrmhMJpnd83ggQEw&_nc_zt=23&_nc_ht=scontent.fmnl37-1.fna&_nc_gid=Xu6T4mZCnhumo742Gw4X3g&_nc_ss=7b2a8&oh=00_AQFR9f6Gn--b33E-8ufyJzWBjihdbNTjyR3p3FCwjsV9_A&oe=6A7A3B9F')",
+                    }}
+                  ></div>
+                  <div className="p-md">
+                    <h4 className="font-headline-md text-body-lg font-semibold text-on-surface mb-xs">
+                      Vela Skincare
+                    </h4>
+                    <p className="font-body-md text-sm text-on-surface-variant mb-sm line-clamp-2">
+                      Complete packaging and identity design for a premium
+                      organic skincare line.
+                    </p>
+                    <div className="flex gap-2">
+                      <span className="bg-surface text-tertiary-container px-2 py-1 rounded font-label-caps text-[10px]">
+                        Graphic Design
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {(activeFilter === "all" ||
                 activeFilter === "brand-identity") && (
                 <div className="group bg-surface-container rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                   <div
@@ -407,7 +462,7 @@ export default function Page() {
                     title="A luxury packaging mockup for a skincare brand. Clean white boxes with subtle debossed silver logos and a signature blue (#4684C2) ribbon. Studio lighting."
                     style={{
                       backgroundImage:
-                        "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDROdyfDE8O5zjAa7mryczQj9FfQqWswir2j59FEp8Zwj4q-EpgDeVLaUm9Xze3zQy-9PJCyq3VymglzTAOGjY2egWZ06QYRF0hdUWtbSjIWRZZQjWcMf5-kkX63KygUcjcpjbUNI1ca6tgCoOnQDsVCZ6ZS1VcZFmOvmsULMmWhi5TeFZZ7e0PQLvyiZKEjKOqQDxYZQ5VUErYSXTxGZu8kBVN7SU2qoU98YlwPPOex3X9I-rI22On')",
+                        "url('https://scontent.fmnl3-2.fna.fbcdn.net/v/t39.30808-6/739040441_122118193095349161_5778778387481849685_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s2048x2048&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGTkpTaRsT8tJVF5Ur5d0jnmrmEsINwM6CauYSwg3AzoMImTQGv9nfma1d_u5Fz6lTZ2BXsuEU15aKZ3cAorXiS&_nc_ohc=BRMIr4WiUasQ7kNvwGop3BF&_nc_oc=AdqUOCt0-w2YGDBNul5zurHqBQyIkZ2t-9DXFcULjIZbUB3fFXVtFgGRC5LdTXvB4_KgfRMUFB0mo_t1xs7GlBio&_nc_zt=23&_nc_ht=scontent.fmnl3-2.fna&_nc_gid=-xkcgHap-8eOXRJ2d-7icA&_nc_ss=7b2a8&oh=00_AQH9O0K5rckiv2UZYv1RgXQ2NSuuerj1MSM0m8Kq2SFO3w&oe=6A7A28D6')",
                     }}
                   ></div>
                   <div className="p-md">
