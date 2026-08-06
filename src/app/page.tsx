@@ -32,7 +32,7 @@ export default function Page() {
       levelClass: "bg-surface",
       dateStr: "",
       numCommissions: 0,
-    }))
+    })),
   );
 
   // 2. Fetch live data from Supabase after the component mounts
@@ -101,10 +101,10 @@ export default function Page() {
 
   const handleCellMouseEnter = (
     e: React.MouseEvent<HTMLDivElement>,
-    cellData: { numCommissions: number; dateStr: string }
+    cellData: { numCommissions: number; dateStr: string },
   ) => {
     if (!cellData.dateStr) return; // Prevent tooltip on initial empty render
-    
+
     const rect = e.currentTarget.getBoundingClientRect();
     const tooltipText = `${
       cellData.numCommissions === 0 ? "No" : cellData.numCommissions
@@ -226,7 +226,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            
+
             {/* Heatmap Tooltip Portal Overlay */}
             {tooltip.visible && (
               <div
@@ -342,7 +342,8 @@ export default function Page() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
               {/* Card 1 */}
-              {(activeFilter === "all" || activeFilter === "graphic-design") && (
+              {(activeFilter === "all" ||
+                activeFilter === "graphic-design") && (
                 <div className="group bg-surface-container rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                   <div
                     className="w-full aspect-[4/3] bg-cover bg-center"
@@ -398,7 +399,8 @@ export default function Page() {
               )}
 
               {/* Card 3 */}
-              {(activeFilter === "all" || activeFilter === "brand-identity") && (
+              {(activeFilter === "all" ||
+                activeFilter === "brand-identity") && (
                 <div className="group bg-surface-container rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                   <div
                     className="w-full aspect-[4/3] bg-cover bg-center"
@@ -459,8 +461,8 @@ export default function Page() {
                 Start a Commission
               </h2>
               <p className="font-body-md text-body-md text-on-surface-variant text-center mb-lg">
-                Ready to bring your vision to life? Fill out the details below to
-                initiate the process.
+                Ready to bring your vision to life? Fill out the details below
+                to initiate the process.
               </p>
               <form className="flex flex-col gap-md">
                 <div className="flex flex-col gap-xs">
@@ -468,9 +470,34 @@ export default function Page() {
                     Service Type
                   </label>
                   <select className="w-full p-3 bg-surface border border-outline-variant rounded-lg text-on-surface font-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all appearance-none">
+                    <option>Cover Page</option>
+                    <option>Profile Page Template</option>
+                    <option>Background Template</option>
+                    <option>Resume</option>
+                    <option>Advertisement Poster</option>
+                    <option>Digital Collage Design</option>
                     <option>Graphic Design</option>
-                    <option>Brand Identity</option>
-                    <option>Video Editing</option>
+                    <option>Multiple-Page Design with Cover Page</option>
+                    <option>Simple-page Design</option>
+                    <option>Commission Sheet</option>
+                    <option>Editorial Page Design</option>
+                    <option>Class Schedule Wallpaper</option>
+                    <option>Restaurant Menu Design</option>
+                    <option>Infographics</option>
+                    <option>Flyer</option>
+                    <option>Brochures</option>
+                    <option>Magazine</option>
+                    <option>Business / Calling Card</option>
+                    <option>
+                      Product Packaging Template with Label Stickers
+                    </option>
+                    <option>Business Logo</option>
+                    <option>Business Profile Picture</option>
+                    <option>Campus Publication Material</option>
+                    <option>K-POP Visual Banners</option>
+                    <option>X / Twitter Header</option>
+                    <option>Laptop Wallpaper Design</option>
+                    <option>Video Edits</option>
                     <option>Other / Consultation</option>
                   </select>
                 </div>

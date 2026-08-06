@@ -7,7 +7,7 @@ export default function AdminPage() {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("Graphic Design");
   const [completedAt, setCompletedAt] = useState(
-    new Date().toISOString().split("T")[0]
+    new Date().toISOString().split("T")[0],
   );
   const [status, setStatus] = useState("");
 
@@ -36,7 +36,9 @@ export default function AdminPage() {
       <h1 className="text-2xl font-bold mb-4">Add Delivered Commission</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div>
-          <label className="block text-sm font-semibold mb-1">Project Title</label>
+          <label className="block text-sm font-semibold mb-1">
+            Project Title
+          </label>
           <input
             type="text"
             required
@@ -54,14 +56,40 @@ export default function AdminPage() {
             onChange={(e) => setCategory(e.target.value)}
             className="w-full p-2 border rounded"
           >
+            <option>Cover Page</option>
+            <option>Profile Page Template</option>
+            <option>Background Template</option>
+            <option>Resume</option>
+            <option>Advertisement Poster</option>
+            <option>Digital Collage Design</option>
             <option>Graphic Design</option>
-            <option>Brand Identity</option>
-            <option>Video Editing</option>
+            <option>Multiple-Page Design with Cover Page</option>
+            <option>Simple-page Design</option>
+            <option>Commission Sheet</option>
+            <option>Editorial Page Design</option>
+            <option>Class Schedule Wallpaper</option>
+            <option>Restaurant Menu Design</option>
+            <option>Infographics</option>
+            <option>Flyer</option>
+            <option>Brochures</option>
+            <option>Magazine</option>
+            <option>Business / Calling Card</option>
+            <option>Product Packaging Template with Label Stickers</option>
+            <option>Business Logo</option>
+            <option>Business Profile Picture</option>
+            <option>Campus Publication Material</option>
+            <option>K-POP Visual Banners</option>
+            <option>X / Twitter Header</option>
+            <option>Laptop Wallpaper Design</option>
+            <option>Video Edits</option>
+            <option>Other / Consultation</option>
           </select>
         </div>
 
         <div>
-          <label className="block text-sm font-semibold mb-1">Completion Date</label>
+          <label className="block text-sm font-semibold mb-1">
+            Completion Date
+          </label>
           <input
             type="date"
             required
