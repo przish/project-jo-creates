@@ -340,7 +340,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter gap-4">
               {/* Card 1 */}
               {(activeFilter === "all" || activeFilter === "video-editing") && (
                 <div className="group bg-surface-container rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
