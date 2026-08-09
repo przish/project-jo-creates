@@ -1,3 +1,5 @@
+"use client"; // <-- This is the magic line that fixes your Vercel build error
+
 import React, { useState } from 'react';
 
 export default function AdminCommissions() {
