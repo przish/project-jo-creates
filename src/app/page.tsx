@@ -25,6 +25,7 @@ export default function Page() {
     x: 0,
     y: 0,
   });
+  const [commissionCount, setCommissionCount] = useState<number | null>(null);
 
   // 1. Initial State: An empty 52x7 grid to prevent Next.js hydration mismatch
   const [heatmapData, setHeatmapData] = useState<HeatmapCell[]>(() =>
@@ -99,6 +100,57 @@ export default function Page() {
     loadCommissionData();
   }, []);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadCommissionCount() {
+      const apiUrl = process.env.NEXT_PUBLIC_COMMISSIONS_API_URL;
+
+      if (apiUrl) {
+        try {
+          const response = await fetch(apiUrl, { cache: "no-store" });
+
+          if (response.ok) {
+            const payload = await response.json();
+            const nextCount =
+              typeof payload.commissionCount === "number"
+                ? payload.commissionCount
+                : typeof payload.count === "number"
+                  ? payload.count
+                  : null;
+
+            if (nextCount !== null && isMounted) {
+              setCommissionCount(nextCount);
+              return;
+            }
+          }
+        } catch (error) {
+          console.error("Failed to load commission count from API", error);
+        }
+      }
+
+      const { count, error } = await supabase
+        .from("commissions")
+        .select("*", { count: "exact", head: true });
+
+      if (!isMounted) return;
+
+      if (error) {
+        console.error("Error loading commission count", error.message);
+        setCommissionCount(0);
+        return;
+      }
+
+      setCommissionCount(count ?? 0);
+    }
+
+    loadCommissionCount();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const handleCellMouseEnter = (
     e: React.MouseEvent<HTMLDivElement>,
     cellData: { numCommissions: number; dateStr: string },
@@ -157,28 +209,33 @@ export default function Page() {
 
           {/* 1. Hero Section */}
           <section className="relative w-full max-w-[1280px] mx-auto px-margin-mobile lg:px-margin-desktop pt-xl pb-lg flex flex-col items-center justify-center min-h-[80vh] text-center z-10">
-            <img
-              alt="Jo Creates Logo"
-              className="w-48 h-48 object-contain mb-md rounded-full shadow-lg bg-surface"
-              src="https://lh3.googleusercontent.com/aida/AP1WRLvY7yuEZQDTRU_DYEVwAjG0OHPp1Edbh7JVtkqWUL-AVuFbLReMfAMvj7hJXF0XG5tWKHGq5UUe5ogfAQaI1xyI_liYqGkoHTtLadsKh70TSi6dSX_309pDUBGJ3vBlSOF46oOYW9k4dEhb-CsjzsyIc8FuU3t3abBUaYh4618Yp6orIUTa8b-Nbo-OvgTsIEMbNTNvV2YK1pyo4r2obSLWdioeh6hrVVbkzJr7F1VaJcyC8XrSx0znxMQ"
-            />
-            <h1 className="font-display-lg text-display-lg-mobile lg:text-display-lg text-primary tracking-tight mb-md max-w-4xl leading-tight">
-              Where System <span className="text-tertiary">Meets Soul.</span>
+            <div className="w-48 h-48 overflow-hidden rounded-full shadow-[0_25px_45px_rgba(0,0,0,.15)] ring-1 ring-white/20 mb-10">
+              <img
+                alt="Jo Creates Logo"
+                className="w-full h-full object-cover object-center"
+                src="/jo-creates-logo.png"
+              />
+            </div>
+            <h1 className="font-display-lg text-display-lg-mobile lg:text-display-lg text-primary tracking-tight mb-md max-w-4xl leading-tight font-bold">
+              — your projects, curated with love and logic. 🫧
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-xl">
-              Jo Creates is a multi-disciplinary design studio specializing in
-              brand identity, publication materials, and dynamic visual
-              storytelling. We balance meticulous structural design with fluid,
-              organic creativity to deliver commissions that resonate.
+              Hi, I'm Jo. I’m a 3rd-year Architecture student and a STEM honors
+              graduate with a deep appreciation for both traditional and digital
+              arts. I’ve been handling commissioned design work since high
+              school, constantly refining my craft to meet diverse creative
+              needs. Whether I'm drafting structural layouts, designing
+              compelling digital assets, or tackling academic writing, I bring a
+              detail-oriented and highly adaptable approach to every project.
+              I'm here to help translate your concepts into clean, impactful
+              realities.
             </p>
             <button
               onClick={scrollToForm}
               className="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-caps text-label-caps py-4 px-8 rounded-full shadow-md hover:shadow-xl transition-all duration-500 flex items-center gap-2 group"
             >
               COMMISSION ME
-              <span className="material-symbols-outlined group-hover:translate-y-1 transition-transform">
-                arrow_downward
-              </span>
+              <img src="/arrow-down.svg" className="w- h-5 justify-center" />
             </button>
           </section>
 
@@ -197,7 +254,9 @@ export default function Page() {
                 <span className="material-symbols-outlined text-[16px]">
                   verified
                 </span>
-                150+ Commissions Delivered
+                {commissionCount === null
+                  ? "Loading..."
+                  : `${commissionCount.toLocaleString()}+ Commissions Delivered`}
               </div>
             </div>
 
@@ -612,23 +671,17 @@ export default function Page() {
           <div className="flex flex-col items-center md:items-start gap-xs">
             <img
               alt="Jo Creates Logo"
-              className="h-8 w-auto object-contain opacity-80 grayscale hover:grayscale-0 transition-all"
-              src="https://lh3.googleusercontent.com/aida/AP1WRLvY7yuEZQDTRU_DYEVwAjG0OHPp1Edbh7JVtkqWUL-AVuFbLReMfAMvj7hJXF0XG5tWKHGq5UUe5ogfAQaI1xyI_liYqGkoHTtLadsKh70TSi6dSX_309pDUBGJ3vBlSOF46oOYW9k4dEhb-CsjzsyIc8FuU3t3abBUaYh4618Yp6orIUTa8b-Nbo-OvgTsIEMbNTNvV2YK1pyo4r2obSLWdioeh6hrVVbkzJr7F1VaJcyC8XrSx0znxMQ"
+              className="h-[150px] w-auto object-contain opacity-80 grayscale hover:grayscale-0 transition-all"
+              src="/jo-creates-logo.png"
             />
           </div>
           <div className="text-label-caps text-on-surface-variant">
-            © 2024 JO CREATES. ALL RIGHTS RESERVED.
+            © 2026 JO CREATES. ALL RIGHTS RESERVED.
           </div>
           <div className="flex items-center gap-md">
-            <span className="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">
-              brush
-            </span>
-            <span className="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">
-              palette
-            </span>
-            <span className="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">
-              ink_pen
-            </span>
+            <img alt="brush" src="/brush.svg" className="h-[50]" />
+            <img alt="palette" src="/palette.svg" className="h-[50]" />
+            <img alt="ink pen" src="/ink-pen.svg" className="h-[50]" />
           </div>
         </div>
       </footer>
